@@ -341,7 +341,7 @@ Metode SAW dipilih karena:
 **Muhammad Aufa Zaikra**
 Mahasiswa Informatika — Universitas Syiah Kuala (USK), Banda Aceh
 
-- 📧 Email: `[EMAIL_ADDRESS]`
+- 📧 Email: `muhammad.aufa2018@gmail.com`
 - 🐙 GitHub: [@aufazaikra](https://github.com/aufazaikra)
 
 > *Proyek ini dibuat sebagai tugas akhir (skripsi) dengan topik: "Sistem Pendukung Keputusan Pemilihan Vendor Jasa Acara di Kota Banda Aceh Menggunakan Metode Simple Additive Weighting (SAW)"*
