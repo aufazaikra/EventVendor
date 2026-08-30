@@ -128,6 +128,115 @@ Sistem rekomendasi menggunakan metode **Simple Additive Weighting (SAW)**, salah
 
 ---
 
+## 🗂️ Entity Relationship Diagram (ERD)
+
+```mermaid
+erDiagram
+    USERS ||--o{ VENDORS : "owns"
+    USERS ||--o{ TRANSACTIONS : "places"
+    USERS ||--o{ REVIEWS : "writes"
+
+    CATEGORIES ||--o{ VENDORS : "categorizes"
+    CITIES ||--o{ VENDORS : "located_in"
+
+    VENDORS ||--|| VENDOR_ADDRESSES : "has"
+    VENDORS ||--o{ PROJECTS : "handles"
+    VENDORS ||--o{ PRICELISTS : "offers"
+    VENDORS ||--o{ REVIEWS : "receives"
+    VENDORS }o--o{ TRANSACTIONS : "involved_in"
+
+    PRICELISTS ||--o{ TRANSACTIONS : "selected_in"
+    TRANSACTIONS ||--|| REVIEWS : "reviewed_in"
+
+    USERS {
+        int id PK
+        string nama
+        string email UK
+        string password
+        string role "admin, vendor, pelanggan"
+        string no_hp
+        datetime created_at
+    }
+
+    VENDORS {
+        int id PK
+        int user_id FK
+        int category_id FK
+        int city_id FK
+        string nama_bisnis
+        string slug
+        string alamat_lengkap
+        string deskripsi_singkat
+        string tentang_kami
+        string logo
+        string banner_image
+        string no_whatsapp
+        string website_url
+        string instagram
+        string tiktok
+        boolean is_verified
+    }
+
+    VENDOR_ADDRESSES {
+        int id PK
+        int vendor_id FK
+        string jalan
+        string desa
+        string kecamatan
+    }
+
+    CATEGORIES {
+        int id PK
+        string nama
+        string slug UK
+        string ikon
+    }
+
+    CITIES {
+        int id PK
+        string nama
+        string slug UK
+    }
+
+    PROJECTS {
+        int id PK
+        int vendor_id FK
+        string judul_project
+        date tanggal_acara
+        string deskripsi
+        string cover_image
+    }
+
+    PRICELISTS {
+        int id PK
+        int vendor_id FK
+        string nama_paket
+        decimal harga
+        string fitur_paket
+    }
+
+    TRANSACTIONS {
+        int id PK
+        string kode_pesanan UK
+        int vendor_id FK
+        int user_id FK
+        int pricelist_id FK
+        string status
+    }
+
+    REVIEWS {
+        int id PK
+        int vendor_id FK
+        int user_id FK
+        int transaction_id FK
+        int rating
+        string komentar
+        string balasan_vendor
+    }
+```
+
+---
+
 ## 🗄️ Struktur Database
 
 ```
@@ -161,11 +270,13 @@ projects         → Album portofolio vendor
 ## 🖥️ Tampilan Aplikasi
 
 ### Halaman Utama & Sistem Rekomendasi
+![Landing Page](docs/homepage.png)
 - Form pencarian dengan filter kategori, kecamatan, dan anggaran
 - Slider bobot dinamis untuk Harga, Rating, dan Pengalaman
 - Kartu hasil rekomendasi vendor dengan skor SAW, rating bintang, dan harga terendah
 
 ### Halaman Detail Vendor
+![Landing Page](docs/detail-vendor.png)
 - Banner dan logo bisnis
 - Deskripsi lengkap "Tentang Kami"
 - Galeri foto portofolio proyek
@@ -174,12 +285,14 @@ projects         → Album portofolio vendor
 - Tombol kontak langsung via WhatsApp
 
 ### Dashboard Vendor
+![Landing Page](docs/dashboard-vendor.png)
 - Ringkasan statistik (total paket, rata-rata rating)
 - Manajemen paket harga (CRUD)
 - Manajemen portofolio (upload foto proyek)
 - Halaman pesanan dan manajemen status transaksi
 
 ### Panel Admin
+![Landing Page](docs/dashboard-admin.png)
 - Statistik platform (total user, vendor, kategori)
 - Daftar vendor dengan tombol verifikasi / batalkan verifikasi
 - Daftar pelanggan dengan riwayat transaksi
@@ -341,7 +454,7 @@ Metode SAW dipilih karena:
 **Muhammad Aufa Zaikra**
 Mahasiswa Informatika — Universitas Syiah Kuala (USK), Banda Aceh
 
-- 📧 Email: `[EMAIL_ADDRESS]`
+- 📧 Email: `muhammad.aufa2018@gmail.com`
 - 🐙 GitHub: [@aufazaikra](https://github.com/aufazaikra)
 
 > *Proyek ini dibuat sebagai tugas akhir (skripsi) dengan topik: "Sistem Pendukung Keputusan Pemilihan Vendor Jasa Acara di Kota Banda Aceh Menggunakan Metode Simple Additive Weighting (SAW)"*
