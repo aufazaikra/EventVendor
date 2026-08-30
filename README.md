@@ -270,11 +270,13 @@ projects         → Album portofolio vendor
 ## 🖥️ Tampilan Aplikasi
 
 ### Halaman Utama & Sistem Rekomendasi
+![Landing Page](docs/homepage.png)
 - Form pencarian dengan filter kategori, kecamatan, dan anggaran
 - Slider bobot dinamis untuk Harga, Rating, dan Pengalaman
 - Kartu hasil rekomendasi vendor dengan skor SAW, rating bintang, dan harga terendah
 
 ### Halaman Detail Vendor
+![Landing Page](docs/detail-vendor.png)
 - Banner dan logo bisnis
 - Deskripsi lengkap "Tentang Kami"
 - Galeri foto portofolio proyek
@@ -283,12 +285,14 @@ projects         → Album portofolio vendor
 - Tombol kontak langsung via WhatsApp
 
 ### Dashboard Vendor
+![Landing Page](docs/dashboard-vendor.png)
 - Ringkasan statistik (total paket, rata-rata rating)
 - Manajemen paket harga (CRUD)
 - Manajemen portofolio (upload foto proyek)
 - Halaman pesanan dan manajemen status transaksi
 
 ### Panel Admin
+![Landing Page](docs/dashboard-admin.png)
 - Statistik platform (total user, vendor, kategori)
 - Daftar vendor dengan tombol verifikasi / batalkan verifikasi
 - Daftar pelanggan dengan riwayat transaksi
