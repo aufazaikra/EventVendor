@@ -84,20 +84,26 @@ class SawAlgorithmTest extends TestCase
          * V (Skor) = (0.2 * 0.5) + (0.6 * 0.3) + (0.1 * 0.2) = 0.10 + 0.18 + 0.02 = 0.30
          */
 
-        $vendorA = clone (new Vendor())->fill(['id' => 1, 'name' => 'Vendor A']);
+        $vendorA = new Vendor();
+        $vendorA->id = 1;
+        $vendorA->name = 'Vendor A';
         $vendorA->pricelists_min_harga = 100000;
         $vendorA->reviews_avg_rating = 5.0;
         $vendorA->transactions_count = 50;
 
-        $vendorB = clone (new Vendor())->fill(['id' => 2, 'name' => 'Vendor B']);
-        $vendorB->pricelists_min_harga = 200000;
-        $vendorB->reviews_avg_rating = 4.0;
-        $vendorB->transactions_count = 20;
+        $vendorA = new Vendor();
+        $vendorA->id = 2;
+        $vendorA->name = 'Vendor B';
+        $vendorA->pricelists_min_harga = 200000;
+        $vendorA->reviews_avg_rating = 4.0;
+        $vendorA->transactions_count = 20;
 
-        $vendorC = clone (new Vendor())->fill(['id' => 3, 'name' => 'Vendor C']);
-        $vendorC->pricelists_min_harga = 500000;
-        $vendorC->reviews_avg_rating = 3.0;
-        $vendorC->transactions_count = 5;
+        $vendorA = new Vendor();
+        $vendorA->id = 3;
+        $vendorA->name = 'Vendor C';
+        $vendorA->pricelists_min_harga = 500000;
+        $vendorA->reviews_avg_rating = 3.0;
+        $vendorA->transactions_count = 5;
 
         // Kita acak urutannya untuk membuktikan algoritma bisa mengurutkan dengan benar
         $vendors = new Collection([$vendorB, $vendorC, $vendorA]);
